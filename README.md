@@ -19,6 +19,7 @@ The Siteimprove Analytics SDK allows developers to easily track user interaction
     - [Track Screen Views](#track-screen-views)
     - [Track Search Events](#track-search-events)
     - [Track Custom Events](#track-custom-events)
+    - [Track Push Notification Events](#track-push-notification-events)
 
 
 ## Installation
@@ -148,3 +149,17 @@ Siteimprove.trackEvent(key = "cart.refresh", attributes = mapOf(
     "cart.item_count" to "10",
     "cart.value" to "249.99"
 ))
+```
+
+### Track Push Notification Events
+To track push notification events, use the trackNotification method. This method is used to collect analytics data for notifications, including the state of the notification (e.g., `received` or `opened`), a unique identifier (`uid`), the name of the notification (`notificationName`), and additional custom data (`data`).
+
+**Example:**
+```kotlin
+trackNotification(
+    uid = "98b8175867c6420337a6854b34d7ab369827b97a742c2befb38e9dceedf0fd69",
+    notificationName = "retention_push",
+    state = CollectDataNotification.State.Received,
+    keys = mapOf("campaign" to "retention.2025q1", "target.country" to "us")
+)
+```
